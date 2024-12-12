@@ -11,3 +11,4 @@
         group: centos
         # mode: 0644
         mode: u=rw,g=r,o=rx
+        backup: true
