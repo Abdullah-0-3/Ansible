@@ -3,9 +3,9 @@
   hosts: localhost
 
   tasks:
-  - name: Test Connectivity
-    ping: 
+    - name: Test Connectivity
+      ping:
 
-  - name: Print Message
-    debug:
-      msg: "Hello, World!"
+    - name: Print Message
+      debug:
+        msg: "Hello, World!"
