@@ -1,0 +1,13 @@
+---
+- name: Copying File
+  hosts: localhost
+
+  tasks:
+    - name: Copying File
+      copy:
+        src: /home/centos/ansible.txt
+        dest: /home/centos/
+        owner: centos
+        group: centos
+        # mode: 0644
+        mode: u=rw,g=r,o=rx
