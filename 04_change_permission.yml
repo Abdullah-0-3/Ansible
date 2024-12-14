@@ -1,0 +1,9 @@
+---
+- name: Change Permission
+  hosts: localhost
+  tasks:
+    - name: Change permission of a file
+      file: /home/centos/file1.txt
+      mode: 0644
+      owner: root
+      group: root
