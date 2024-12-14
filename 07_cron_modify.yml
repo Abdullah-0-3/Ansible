@@ -1,0 +1,11 @@
+---
+- name: Cron Modification
+  hosts: localhost
+
+  tasks:
+  - name: Delete Cron Job
+    cron:
+      name: "Run Script"
+      user: centos
+      cron_file: centos
+      state: absent

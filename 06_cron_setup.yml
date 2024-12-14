@@ -1,0 +1,14 @@
+---
+- name: Cron Job
+  hosts: localhost
+
+  tasks:
+  - name: Add Cron Job
+    cron:
+      name: "Run Script"
+      minute: "*/1 * * * *"
+      # second, minute, hour, day, month, weekday
+      job: "/home/centos/script.sh >> /tmp/script.log"
+      user: centos
+      cron_file: centos
+      state: present

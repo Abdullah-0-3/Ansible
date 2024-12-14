@@ -1,0 +1,12 @@
+---
+- name: Running Script
+  hosts: localhost
+
+  tasks:
+    - name: Run a script
+      shell: /home/centos/script.sh >> /tmp/script.log
+      args:
+        chdir: /home/centos
+        creates: /tmp/script.log
+        warn: no
+        # You need to specify the location in script where to put it
