@@ -1,0 +1,17 @@
+---
+- name: Creating User
+  hosts: localhost
+
+  tasks:
+    - name: Create User
+      user:
+        name: "centos"
+        comment: "CentOS User"
+        # group: "wheel"
+        groups: wheel, docker
+        # state: present
+        state: absent
+        shell: /bin/bash
+        # to remove user data
+        remove: yes
+        
