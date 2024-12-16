@@ -1,0 +1,21 @@
+---
+- name: Install and Start Service Using Variable
+  hosts: localhost
+  become: true
+  vars:
+    - service_name: nginx
+
+  tasks:
+    - name: Installing Nginx
+      yum:
+        name: "{{ service_name }}"
+        state: present
+      tags:
+        - install-nginx
+
+    - name: Start Nginx
+      service:
+        name: "{{ service_name }}"
+        state: started
+      tags:
+        - start-nginx

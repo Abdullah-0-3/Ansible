@@ -1,0 +1,12 @@
+---
+- name: Run Tasks Using SUDO Command
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: Download Nginx
+      yum:
+        name: nginx
+        state: present
+        enabled: yes
+# To run this you need to define --ask-become-pass to run this playbook.

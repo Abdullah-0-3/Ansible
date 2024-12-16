@@ -1,0 +1,22 @@
+---
+- name: Firewall
+  hosts: localhost
+
+  tasks:
+    - name: Open Port 80
+      firewalld:
+        port: 80/tcp
+        permanent: yes
+        state: enabled
+        immediate: yes
+
+    - name: Restart Firewalld
+      # service:
+      #   name: firewalld
+      #   state: restarted
+      #   enabled: yes
+      #   daemon_reload: yes
+      firewalld:
+        state: restarted
+        enabled: yes
+        immediate: yes

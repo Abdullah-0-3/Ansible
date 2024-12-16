@@ -1,0 +1,16 @@
+---
+- name: Creating User
+  hosts: localhost
+
+  tasks:
+    - name: Create User
+      user:
+        name: "{{ item }}"
+        comment: "CentOS User"
+        groups: wheel, docker
+        state: present
+        shell: /bin/bash
+      loop:
+        - Raju
+        - Baborao
+        - Sham
