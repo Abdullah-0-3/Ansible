@@ -1,0 +1,23 @@
+---
+- name: Install and Start Service Using Ansible Tags
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: Installing Nginx
+      yum:
+        name: nginx
+        state: present
+      tags: 
+        - install-nginx
+
+    - name: Start Nginx
+      service:
+        name: nginx
+        state: started
+      tags: 
+        - start-nginx
+
+# ansible-playbook 14_ansible_tasks.yml --list-tags
+# ansible-playbook 14_ansible_tasks.yml -t install-nginx
+# ansible-playbook 14_ansible_tasks.yml --skip-tags install-nginx

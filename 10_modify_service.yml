@@ -1,0 +1,15 @@
+---
+- name: Stop Nginx
+  hosts: localhost
+
+  tasks:
+    - name: Stop Nginx
+      ignore_errors: yes
+      shell: "sudo pgrep nginx | xargs kill"
+
+    - name: Start Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+        daemon_reload: yes

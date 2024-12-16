@@ -1,0 +1,19 @@
+---
+- name: Loop of Installing Packages
+  hosts: localhost
+  become: true
+  vars:
+    - packages: ['nginx', 'curl', 'mariadb']
+
+  tasks:
+    - name: Install Packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ packages }}"
+      # loop:
+      #   - nginx
+      #   - curl
+      #   - mariadb
+      # tags:
+      #   - install-packages

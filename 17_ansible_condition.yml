@@ -1,0 +1,19 @@
+---
+- name: Ansible Condition
+  hosts: localhost
+  become: true
+  vars:
+    - service_name: nginx
+
+  tasks:
+    - name: Install and Start Service
+      apt:
+        name: "{{ service_name }}"
+        state: present
+      when: ansible_os_family == "Ubuntu"
+
+    - name: Start Nginx
+      yum:
+        name: "{{ service_name }}"
+        state: started
+      when: ansible_os_family == "RedHat"

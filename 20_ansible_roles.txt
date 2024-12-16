@@ -1,0 +1,7 @@
+Use Case 
+
+• Install apache httpd webserver on remote server 
+• Place our custom HTML File to use 
+• Start the service 
+• Enable service in firewall 
+• Reload the Firewall

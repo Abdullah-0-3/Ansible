@@ -1,0 +1,20 @@
+---
+- name: Firewall
+  hosts: localhost
+
+  tasks:
+    - name: Open Port 80
+      firewalld:
+        port: 80/tcp
+        permanent: yes
+        state: enabled
+        immediate: yes
+      notify:
+        - Restart Firewalld
+
+  handlers:
+    - name: Restart Firewalld
+      firewalld:
+        state: restarted
+        enabled: yes
+        immediate: yes

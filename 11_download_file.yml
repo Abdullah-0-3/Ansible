@@ -1,0 +1,14 @@
+--- 
+- name: Download File
+  hosts: localhost
+
+  tasks:
+    - name: Download File
+      get_url: 
+        url: "https://www.google.com"
+        dest: "/tmp/google.html"
+        mode: 0644
+        timeout: 30
+        force: yes
+        user: centos
+        group: centos
